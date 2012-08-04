@@ -12,7 +12,7 @@ public class DisplayMessageActivity extends Activity {
 		
 		// Get the message from the intent
 		Intent intent = getIntent();
-		String message = intent.getStringExtra(MultiSRCActivity.EXTRA_MESSAGE);
+		String message = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE);
 		
 		// Create the text view
 		TextView textView = new TextView(this);
