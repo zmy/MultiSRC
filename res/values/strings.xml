@@ -3,4 +3,6 @@
     <string name="app_name">Multi Sourcing</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="welcome_message">Welcome to MultiSRC!</string>
+    <string name="welcome_next">Get Involved></string>
 </resources>

@@ -1,22 +1,26 @@
-package zmy.exp.multisrc;
+package zmy.exp.multisrc.Login;
 
+import zmy.exp.multisrc.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.EditText;
 
-public class LoginActivity extends FragmentActivity {
+public class LoginActivity extends Activity {
 	public final static String EXTRA_MESSAGE = "zmy.exp.multisrc.MESSAGE";
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.welcome);
+        //TODO: switch to auto-signin or login/register
+    }
+    /** Called after register/login successfully */
+    public void getInvolved(View view) {
+    	//TODO: get start
+    	;
     }
     /** Called when the user selects the Send button */
     public void sendMessage(View view) {
