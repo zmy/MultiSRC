@@ -1,0 +1,3 @@
+<resources>
+    <item type="layout" name="activity_survey_list">@layout/activity_survey_twopane</item>
+</resources>
