@@ -1,4 +1,4 @@
-package zmy.exp.multisrc.Login;
+package zmy.exp.multisrc.User;
 
 import android.app.Activity;
 import android.content.Intent;

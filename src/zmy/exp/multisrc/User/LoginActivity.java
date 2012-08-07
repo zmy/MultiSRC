@@ -1,6 +1,7 @@
-package zmy.exp.multisrc.Login;
+package zmy.exp.multisrc.User;
 
 import zmy.exp.multisrc.R;
+import zmy.exp.multisrc.Survey.SurveyListActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +21,8 @@ public class LoginActivity extends Activity {
     /** Called after register/login successfully */
     public void getInvolved(View view) {
     	//TODO: get start
-    	;
+    	Intent intent = new Intent(this, SurveyListActivity.class);
+    	startActivity(intent);
     }
     /** Called when the user selects the Send button */
     public void sendMessage(View view) {
