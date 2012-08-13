@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
 
 public class SurveyListActivity extends FragmentActivity
@@ -17,8 +18,10 @@ public class SurveyListActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_list);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+        Log.d("SurveyListActivity", "Created");
 
         if (findViewById(R.id.survey_detail_container) != null) {
+        	Log.d("SurveyListActivity", "mTwoPane");
             mTwoPane = true;
             ((SurveyListFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.survey_list))
