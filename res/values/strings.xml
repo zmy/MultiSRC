@@ -8,5 +8,7 @@
     <string name="welcome_next">Get Involved></string>
     <string name="title_survey_detail">Survey Detail</string>
     <string name="title_survey_list">Surveys</string>
+    <string name="hello">Hello World, ActionViewerActivity!</string>
+    <string name="logo_description">Logo</string>
 
 </resources>

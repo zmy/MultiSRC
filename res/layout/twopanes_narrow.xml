@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <fragment
+        android:id="@+id/actionlist"
+        android:name="zmy.exp.multisrc.action.ActionListFragment"
+        android:layout_width="200dp"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="10dp" />
+
+    <fragment
+        android:id="@+id/actiondetail"
+        android:name="zmy.exp.multisrc.action.ActionDetailFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

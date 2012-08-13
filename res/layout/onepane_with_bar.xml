@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="0"
+            android:paddingRight="30dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logo_description" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/categorybutton"
+            style="@style/CategoryButtonStyle"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@drawable/button_bg" />
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/actionlist"
+        android:name="zmy.exp.multisrc.action.ActionListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

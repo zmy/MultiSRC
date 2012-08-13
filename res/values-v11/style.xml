@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomActionBarTabTextStyle">
+        <item name="android:textColor">#017729</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="CustomActionBarTabStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_bg</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+
+    <style name="ActionViewerStyle" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarTabTextStyle">@style/CustomActionBarTabTextStyle</item>
+        <item name="android:actionBarTabStyle">@style/CustomActionBarTabStyle</item>
+    </style>
+
+    <style name="ActionViewerStyle_NoActionBar" parent="android:Theme.Holo.Light.NoActionBar"></style>
+
+</resources>
