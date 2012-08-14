@@ -10,7 +10,7 @@ public class ActionSource {
 
 	// List of category titles
 	public static final String CATEGORIES[] = { "Recommend", "Popular", "WiFi", "SNS", "Friends", "Others" };
-    
+
 	// category objects, representing each category
 	ActionCategory[] mCategory;
 
