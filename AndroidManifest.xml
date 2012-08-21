@@ -23,6 +23,7 @@
         android:logo="@drawable/logo" >
         <activity
             android:name=".user.LoginActivity"
+            android:theme="@style/MainStyle"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

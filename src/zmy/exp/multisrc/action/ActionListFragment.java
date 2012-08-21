@@ -6,6 +6,7 @@ import java.util.List;
 import zmy.exp.multisrc.R;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -51,6 +52,7 @@ public class ActionListFragment extends ListFragment implements
 	@Override
 	public void onStart() {
 		super.onStart();
+		Log.d("List Fragment", "At Start");
 		setListAdapter(mListAdapter);
 		getListView().setOnItemClickListener(this);
 		loadCategory(0);
@@ -59,7 +61,8 @@ public class ActionListFragment extends ListFragment implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mListAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item, 
+		Log.d("List Fragment", "At Creat");
+		mListAdapter = new ArrayAdapter<String>(getActivity(), R.layout.action_list_item, 
 				mItemsList);
 	}
 
@@ -76,9 +79,10 @@ public class ActionListFragment extends ListFragment implements
 	 * @param categoryIndex the index of the action category to display.
 	 */
 	public void loadCategory(int categoryIndex) {
+		Log.d("List Fragment", "At Load");
 		mItemsList.clear();
 		int i;
-		ActionCategory cat = ActionSource.getInstance().getCategory(categoryIndex);
+		ActionCategory cat = ActionSource.getInstance(getResources()).getCategory(categoryIndex);
 		for (i = 0; i < cat.getActionCount(); i++) {
 			mItemsList.add(cat.getAction(i).getHeadline());
 		}

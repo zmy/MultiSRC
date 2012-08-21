@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -35,14 +36,14 @@ import android.widget.SpinnerAdapter;
  * the screen, emulating an Action Bar.
  */
 public class ActionViewerActivity extends FragmentActivity
-		implements ActionListFragment.OnItemSelectedListener, CompatActionBarNavListener, OnClickListener{
+implements ActionListFragment.OnItemSelectedListener, CompatActionBarNavListener, OnClickListener{
 
 	// Whether or not we are in dual-pane mode
 	boolean mIsDualPane = false;
-	
+
 	// The fragment where the items are displayed
 	ActionListFragment mListFragment;
-	
+
 	// The fragment where the detail is displayed (null if absent)
 	ActionDetailFragment mDetailFragment;
 
@@ -56,41 +57,43 @@ public class ActionViewerActivity extends FragmentActivity
 		super.onStart();
 		setActionCategory(0);
 	}
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_layout);
+		
+		//ActionDetailFragment.mAction = new Action(getResources());
 
-        // find our fragments
+		// find our fragments
 		mListFragment = (ActionListFragment) getSupportFragmentManager().findFragmentById(
-                R.id.actionlist);
-        mDetailFragment = (ActionDetailFragment) getSupportFragmentManager().findFragmentById(
-                R.id.actiondetail);
+				R.id.actionlist);
+		mDetailFragment = (ActionDetailFragment) getSupportFragmentManager().findFragmentById(
+				R.id.actiondetail);
 
-        // Determine whether we are in single-pane or dual-pane mode by testing the visibility
-        // of the detail view.
-        View actionView = findViewById(R.id.actiondetail);
-        mIsDualPane = actionView != null && actionView.getVisibility() == View.VISIBLE;
+		// Determine whether we are in single-pane or dual-pane mode by testing the visibility
+		// of the detail view.
+		View actionView = findViewById(R.id.actiondetail);
+		mIsDualPane = actionView != null && actionView.getVisibility() == View.VISIBLE;
 
-        // Register ourselves as the listener for the headlines fragment events.
-        mListFragment.setOnItemSelectedListener(this);
+		// Register ourselves as the listener for the headlines fragment events.
+		mListFragment.setOnItemSelectedListener(this);
 
-        // Set up the Action Bar (or not, if one is not available)
-        int catIndex = savedInstanceState == null ? 0 : savedInstanceState.getInt("catIndex", 0);
-        setUpActionBar(mIsDualPane, catIndex);
+		// Set up the Action Bar (or not, if one is not available)
+		int catIndex = savedInstanceState == null ? 0 : savedInstanceState.getInt("catIndex", 0);
+		setUpActionBar(mIsDualPane, catIndex);
 
-        // Set up list fragment
-        mListFragment.setSelectable(mIsDualPane);
-        restoreSelection(savedInstanceState);
+		// Set up list fragment
+		mListFragment.setSelectable(mIsDualPane);
+		restoreSelection(savedInstanceState);
 
-        // Set up the category button (shown if an Action Bar is not available)
-        Button catButton = (Button) findViewById(R.id.categorybutton);
-        if (catButton != null) {
-            catButton.setOnClickListener(this);
-        }
-    }
-	
+		// Set up the category button (shown if an Action Bar is not available)
+		Button catButton = (Button) findViewById(R.id.categorybutton);
+		if (catButton != null) {
+			catButton.setOnClickListener(this);
+		}
+	}
+
 	/** Called when an item is selected.
 	 *
 	 * This is called by the ActionListFragment (via its listener interface) to notify us that a
@@ -162,7 +165,7 @@ public class ActionViewerActivity extends FragmentActivity
 	 */
 	void setActionCategory(int categoryIndex) {
 		mCatIndex = categoryIndex;
-		mCurrentCat = ActionSource.getInstance().getCategory(categoryIndex);
+		mCurrentCat = ActionSource.getInstance(getResources()).getCategory(categoryIndex);
 		mListFragment.loadCategory(categoryIndex);
 
 		// If we are displaying the article on the right, we have to update that too
@@ -204,7 +207,9 @@ public class ActionViewerActivity extends FragmentActivity
 			return;
 		}
 
+		//Log.d("here", "here");
 		android.app.ActionBar actionBar = getActionBar();
+		//Log.d("there", ""+(actionBar == null));
 		actionBar.setDisplayShowTitleEnabled(false);
 
 		// Set up a CompatActionBarNavHandler to deliver us the Action Bar nagivation events

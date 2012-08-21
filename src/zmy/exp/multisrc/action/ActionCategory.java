@@ -1,5 +1,7 @@
 package zmy.exp.multisrc.action;
 
+import android.content.res.Resources;
+
 /**
  * An action category (collection of actions).
  */
@@ -19,6 +21,14 @@ public class ActionCategory {
         int i;
         for (i = 0; i < mActions.length; i++) {
         	mActions[i] = new Action(ngen);
+        }
+    }
+	
+	public ActionCategory(Resources res) {
+        mActions = new Action[ARTICLES_PER_CATEGORY];
+        int i;
+        for (i = 0; i < mActions.length; i++) {
+        	mActions[i] = new Action(res);
         }
     }
 

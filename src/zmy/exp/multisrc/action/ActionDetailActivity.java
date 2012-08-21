@@ -43,7 +43,7 @@ public class ActionDetailActivity extends FragmentActivity {
 		getSupportFragmentManager().beginTransaction().add(android.R.id.content, f).commit();
 
 		// Display the correct action detail on the fragment
-		Action action = ActionSource.getInstance().getCategory(mCatIndex).getAction(mActIndex);
+		Action action = ActionSource.getInstance(getResources()).getCategory(mCatIndex).getAction(mActIndex);
 		f.displayAction(action);
 	}
 

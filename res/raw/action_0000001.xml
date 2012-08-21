@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<action>
+	<entry>
+		<id/>
+		<title type="text">Meet a Friend</title>
+		<author/>
+		<link href="github.com/zmy/ActionData/actions/0000001.xml"/>
+		<category>
+			<tag term="Friends"/>
+			<tag term="Activity"/>
+		</category>
+		<published/>
+		<updated/>
+		<auto/>
+		<summary/>
+	</entry>
+	<info>
+		<options auto="false" require="true"/>
+		<title type="text">Friend's Name</title>
+		<description/>
+		<collector type="EditText"/>
+	</info>
+	<info>
+		<options auto="false" require="false"/>
+		<title type="text">The Action</title>
+		<collector type="EditText"/>
+	</info>
+	<info>
+		<options auto="true" require="false"/>
+		<title type="text">Time</title>
+		<collector type="EditText"/>
+	</info>
+	<info>
+		<options auto="true" require="false"/>
+		<title type="text">Place</title>
+		<collector type="EditText"/>
+	</info>
+</action>

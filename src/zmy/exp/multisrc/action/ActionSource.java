@@ -1,5 +1,7 @@
 package zmy.exp.multisrc.action;
 
+import android.content.res.Resources;
+
 /**
  * Source/repository of actions.
  */
@@ -15,9 +17,9 @@ public class ActionSource {
 	ActionCategory[] mCategory;
 
 	/** Returns the singleton instance of this class. */
-	public static ActionSource getInstance() {
+	public static ActionSource getInstance(Resources res) {
 		if (instance == null) {
-			instance = new ActionSource();
+			instance = new ActionSource(res);
 		}
 		return instance;
 	}
@@ -27,6 +29,14 @@ public class ActionSource {
 		mCategory = new ActionCategory[CATEGORIES.length];
 		for (i = 0; i < CATEGORIES.length; i++) {
 			mCategory[i] = new ActionCategory();
+		}
+	}
+	
+	public ActionSource(Resources res) {
+		int i;
+		mCategory = new ActionCategory[CATEGORIES.length];
+		for (i = 0; i < CATEGORIES.length; i++) {
+			mCategory[i] = new ActionCategory(res);
 		}
 	}
 
