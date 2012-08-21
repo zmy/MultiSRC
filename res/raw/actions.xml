@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed>
+	<entry>
+		<id/>
+		<title type="text">Meet a Friend</title>
+		<author/>
+		<link href="github.com/zmy/ActionData/actions/0000001.xml"/>
+		<category>
+			<tag term="Friends"/>
+			<tag term="Activity"/>
+		</category>
+		<published/>
+		<updated/>
+		<auto/>
+		<summary/>
+	</entry>
+</feed>
