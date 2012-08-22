@@ -17,6 +17,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 /**
  * Fragment that displays detail of an action.
@@ -55,11 +56,15 @@ public class ActionDetailFragment extends Fragment {
 		//return mWebView;
 		Log.d("Detail Fragment", "CreateView");
 		mListView = new ListView(getActivity());
-		mListView.setAdapter(mListAdapter);
-		loadListView();
+		TextView text = new TextView(getActivity());
+		text.setText(mAction.getHeadline());
+		text.setTextSize(20);
+		mListView.addHeaderView(text);
 		Button button = new Button(getActivity());
 		button.setText("Submit");
 		mListView.addFooterView(button);
+		mListView.setAdapter(mListAdapter);
+		loadListView();
 		return mListView;
 	}
 	
