@@ -3,6 +3,7 @@
  */
 package zmy.exp.multisrc.action.collector;
 
+import android.content.Context;
 import android.view.View;
 
 /**
@@ -11,6 +12,6 @@ import android.view.View;
  */
 public interface Collector {
 	public String getResult();
-	public View getView();
+	public View getView(Context context);
 	public float getProgress();
 }

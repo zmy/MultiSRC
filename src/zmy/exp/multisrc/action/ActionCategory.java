@@ -16,14 +16,14 @@ public class ActionCategory {
 	/**
 	 * Create an action category.
 	 */
-	public ActionCategory() {
-        NonsenseGenerator ngen = new NonsenseGenerator();
-        mActions = new Action[ARTICLES_PER_CATEGORY];
-        int i;
-        for (i = 0; i < mActions.length; i++) {
-        	mActions[i] = new Action(ngen);
-        }
-    }
+//	public ActionCategory() {
+//        NonsenseGenerator ngen = new NonsenseGenerator();
+//        mActions = new Action[ARTICLES_PER_CATEGORY];
+//        int i;
+//        for (i = 0; i < mActions.length; i++) {
+//        	mActions[i] = new Action(ngen);
+//        }
+//    }
 	
 	public ActionCategory(Resources res) {
         mActions = new Action[ARTICLES_PER_CATEGORY];

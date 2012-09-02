@@ -24,13 +24,13 @@ public class ActionSource {
 		return instance;
 	}
 
-	public ActionSource() {
-		int i;
-		mCategory = new ActionCategory[CATEGORIES.length];
-		for (i = 0; i < CATEGORIES.length; i++) {
-			mCategory[i] = new ActionCategory();
-		}
-	}
+//	public ActionSource() {
+//		int i;
+//		mCategory = new ActionCategory[CATEGORIES.length];
+//		for (i = 0; i < CATEGORIES.length; i++) {
+//			mCategory[i] = new ActionCategory();
+//		}
+//	}
 	
 	public ActionSource(Resources res) {
 		int i;

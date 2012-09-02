@@ -29,11 +29,11 @@ import android.widget.TextView;
 public class ActionDetailFragment extends Fragment {
 	// The webview where we display the article (our only view)
 	//WebView mWebView;
-	
+
 	//ListView mListView;
 	//List<Map<String, Object>> mInfoList = new ArrayList<Map<String, Object>>();
 	//SimpleAdapter mListAdapter;
-	
+
 	List<Collector> collectors;
 	LinearLayout mLayout;
 	ScrollView mScroll;
@@ -45,7 +45,7 @@ public class ActionDetailFragment extends Fragment {
 	public ActionDetailFragment() {
 		super();
 	}
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,7 +57,7 @@ public class ActionDetailFragment extends Fragment {
 		collectors = new ArrayList<Collector>();
 		mScroll.addView(mLayout);
 	}
-	
+
 	/**
 	 * Sets up the UI. It consists if a single WebView.
 	 */
@@ -67,28 +67,28 @@ public class ActionDetailFragment extends Fragment {
 		//loadWebView();
 		//return mWebView;
 		Log.d("Detail Fragment", "CreateView");
-//		mListView = new ListView(getActivity());
-//		TextView text = new TextView(getActivity());
-//		text.setText(mAction.getHeadline());
-//		text.setTextSize(20);
-//		mListView.addHeaderView(text);
-//		Button button = new Button(getActivity());
-//		button.setText("Submit");
-//		mListView.addFooterView(button);
-//		mListView.setAdapter(mListAdapter);
-//		loadListView();
-//		return mListView;
+		//		mListView = new ListView(getActivity());
+		//		TextView text = new TextView(getActivity());
+		//		text.setText(mAction.getHeadline());
+		//		text.setTextSize(20);
+		//		mListView.addHeaderView(text);
+		//		Button button = new Button(getActivity());
+		//		button.setText("Submit");
+		//		mListView.addFooterView(button);
+		//		mListView.setAdapter(mListAdapter);
+		//		loadListView();
+		//		return mListView;
 		loadAction();
 		return mScroll;
 	}
-	
-//	@Override
-//	public void onStart() {
-//		super.onStart();
-//		Log.d("Detail Fragment", "At Start, Is mListAdapter null: "+(mListAdapter == null));
-//		setListAdapter(mListAdapter);
-//		//loadCategory(0);
-//	}
+
+	//	@Override
+	//	public void onStart() {
+	//		super.onStart();
+	//		Log.d("Detail Fragment", "At Start, Is mListAdapter null: "+(mListAdapter == null));
+	//		setListAdapter(mListAdapter);
+	//		//loadCategory(0);
+	//	}
 
 	/**
 	 * Displays a particular action.
@@ -115,23 +115,22 @@ public class ActionDetailFragment extends Fragment {
 	//				"utf-8");
 	//	}
 	//}
-	
+
 	void loadAction() {
-//		mInfoList.clear();
-//		for (Action.Info i: mAction.getInfoList()) {
-//			HashMap<String, Object> map = new HashMap<String, Object>();
-//			map.put("text", i.title);
-//			mInfoList.add(map);
-//		}
-//		Log.d("Detail Fragment", "Load "+mInfoList.size());
-//		//setListAdapter(mListAdapter);
-//		if (mListAdapter != null)
-//			mListAdapter.notifyDataSetChanged();
+		//		mInfoList.clear();
+		//		for (Action.Info i: mAction.getInfoList()) {
+		//			HashMap<String, Object> map = new HashMap<String, Object>();
+		//			map.put("text", i.title);
+		//			mInfoList.add(map);
+		//		}
+		//		Log.d("Detail Fragment", "Load "+mInfoList.size());
+		//		//setListAdapter(mListAdapter);
+		//		if (mListAdapter != null)
+		//			mListAdapter.notifyDataSetChanged();
 		mLayout.removeAllViews();
-		for (Action.Info i: mAction.getInfoList()) {
-			Collector c = i.generateCollector();
+		for (Collector c: mAction.getCollectorList()) {
 			collectors.add(c);
-			mLayout.addView(c.getView());
+			mLayout.addView(c.getView(getActivity()));
 		}
 	}
 }
