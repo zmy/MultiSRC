@@ -54,8 +54,9 @@ public class ActionDetailFragment extends Fragment {
 		//		new String[]{"text"}, new int[]{R.id.info_text});
 		mScroll = new ScrollView(getActivity());
 		mLayout = new LinearLayout(getActivity());
-		collectors = new ArrayList<Collector>();
+		mLayout.setOrientation(LinearLayout.VERTICAL);
 		mScroll.addView(mLayout);
+		collectors = new ArrayList<Collector>();
 	}
 
 	/**
@@ -67,17 +68,19 @@ public class ActionDetailFragment extends Fragment {
 		//loadWebView();
 		//return mWebView;
 		Log.d("Detail Fragment", "CreateView");
-		//		mListView = new ListView(getActivity());
-		//		TextView text = new TextView(getActivity());
-		//		text.setText(mAction.getHeadline());
-		//		text.setTextSize(20);
-		//		mListView.addHeaderView(text);
-		//		Button button = new Button(getActivity());
-		//		button.setText("Submit");
-		//		mListView.addFooterView(button);
-		//		mListView.setAdapter(mListAdapter);
-		//		loadListView();
-		//		return mListView;
+		//mListView = new ListView(getActivity());
+		//TextView text = new TextView(getActivity());
+		//text.setText(mAction.getHeadline());
+		//text.setTextSize(20);
+		//mListView.addHeaderView(text);
+		//Button button = new Button(getActivity());
+		//button.setText("Submit");
+		//mListView.addFooterView(button);
+		//mListView.setAdapter(mListAdapter);
+		//loadListView();
+		//return mListView;
+		
+		//TODO: add header and footer
 		loadAction();
 		return mScroll;
 	}
@@ -127,10 +130,12 @@ public class ActionDetailFragment extends Fragment {
 		//		//setListAdapter(mListAdapter);
 		//		if (mListAdapter != null)
 		//			mListAdapter.notifyDataSetChanged();
-		mLayout.removeAllViews();
-		for (Collector c: mAction.getCollectorList()) {
-			collectors.add(c);
-			mLayout.addView(c.getView(getActivity()));
+		if (mLayout != null) {
+			mLayout.removeAllViews();
+			for (Collector c: mAction.getCollectorList()) {
+				collectors.add(c);
+				mLayout.addView(c.getView(getActivity()));
+			}
 		}
 	}
 }

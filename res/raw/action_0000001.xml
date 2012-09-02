@@ -14,25 +14,16 @@
 		<auto/>
 		<summary/>
 	</entry>
-	<info>
-		<options auto="false" require="true"/>
-		<title type="text">Friend's Name</title>
-		<description/>
-		<collector type="EditText"/>
+	<info collector="TextConversation">
+		<description type="text">What you have done with the friend?</description>
+		<title type="text">Activity</title>
 	</info>
-	<info>
-		<options auto="false" require="false"/>
-		<title type="text">The Action</title>
-		<collector type="EditText"/>
+	<info collector="TextConversation">
+		<description type="text">Where you have done with the friend?</description>
+		<title type="text">Location</title>
 	</info>
-	<info>
-		<options auto="true" require="false"/>
+	<info collector="TextConversation">
+		<description type="text">When you have done with the friend?</description>
 		<title type="text">Time</title>
-		<collector type="EditText"/>
-	</info>
-	<info>
-		<options auto="true" require="false"/>
-		<title type="text">Place</title>
-		<collector type="EditText"/>
 	</info>
 </action>

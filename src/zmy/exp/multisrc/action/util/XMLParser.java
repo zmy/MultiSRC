@@ -16,6 +16,14 @@ public class XMLParser {
 		parser.require(XmlPullParser.END_TAG, ns, "title");
 		return title;
 	}
+	
+	// Processes description tags in the feed.
+		public static String readDescription(XmlPullParser parser) throws IOException, XmlPullParserException {
+			parser.require(XmlPullParser.START_TAG, ns, "description");
+			String description = readText(parser);
+			parser.require(XmlPullParser.END_TAG, ns, "description");
+			return description;
+		}
 
 	// Processes link tags in the feed.
 	public static String readLink(XmlPullParser parser) throws IOException, XmlPullParserException {

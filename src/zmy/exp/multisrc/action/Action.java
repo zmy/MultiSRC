@@ -38,6 +38,7 @@ public class Action {
 
 		String title;
 		Set<String> tags;
+		//TODO: deal with other intros of an action
 
 		void readEntry(XmlPullParser parser) throws XmlPullParserException, IOException {
 			parser.require(XmlPullParser.START_TAG, XMLParser.ns, "entry");
