@@ -1,4 +1,4 @@
-package zmy.exp.multisrc.action;
+package zmy.exp.multisrc.action.util;
 
 /**
  * A listener that listens to navigation events.

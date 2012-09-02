@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package zmy.exp.multisrc.action;
+package zmy.exp.multisrc.action.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

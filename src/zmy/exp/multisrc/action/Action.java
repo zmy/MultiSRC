@@ -10,6 +10,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import zmy.exp.multisrc.R;
+import zmy.exp.multisrc.action.collector.Collector;
+import zmy.exp.multisrc.action.util.NonsenseGenerator;
 
 import android.content.res.Resources;
 import android.util.Log;
@@ -32,6 +34,11 @@ public class Action {
 
 		public Info() {
 			options = new HashMap<String, String>();
+		}
+
+		public Collector generateCollector() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	}
 

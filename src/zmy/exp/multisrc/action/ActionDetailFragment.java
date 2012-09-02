@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import zmy.exp.multisrc.R;
+import zmy.exp.multisrc.action.collector.Collector;
+import zmy.exp.multisrc.action.collector.TextConversation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,7 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -25,10 +29,14 @@ import android.widget.TextView;
 public class ActionDetailFragment extends Fragment {
 	// The webview where we display the article (our only view)
 	//WebView mWebView;
-	ListView mListView;
-	List<Map<String, Object>> mInfoList = new ArrayList<Map<String, Object>>();
 	
-	SimpleAdapter mListAdapter;
+	//ListView mListView;
+	//List<Map<String, Object>> mInfoList = new ArrayList<Map<String, Object>>();
+	//SimpleAdapter mListAdapter;
+	
+	List<Collector> collectors;
+	LinearLayout mLayout;
+	ScrollView mScroll;
 
 	// The action we are to display
 	Action mAction = null;
@@ -42,8 +50,12 @@ public class ActionDetailFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.d("Detail Fragment", "At Create");
-		mListAdapter = new SimpleAdapter(getActivity(), mInfoList, R.layout.info_list_item,
-				new String[]{"text"}, new int[]{R.id.info_text});
+		//mListAdapter = new SimpleAdapter(getActivity(), mInfoList, R.layout.info_list_item,
+		//		new String[]{"text"}, new int[]{R.id.info_text});
+		mScroll = new ScrollView(getActivity());
+		mLayout = new LinearLayout(getActivity());
+		collectors = new ArrayList<Collector>();
+		mScroll.addView(mLayout);
 	}
 	
 	/**
@@ -55,17 +67,19 @@ public class ActionDetailFragment extends Fragment {
 		//loadWebView();
 		//return mWebView;
 		Log.d("Detail Fragment", "CreateView");
-		mListView = new ListView(getActivity());
-		TextView text = new TextView(getActivity());
-		text.setText(mAction.getHeadline());
-		text.setTextSize(20);
-		mListView.addHeaderView(text);
-		Button button = new Button(getActivity());
-		button.setText("Submit");
-		mListView.addFooterView(button);
-		mListView.setAdapter(mListAdapter);
-		loadListView();
-		return mListView;
+//		mListView = new ListView(getActivity());
+//		TextView text = new TextView(getActivity());
+//		text.setText(mAction.getHeadline());
+//		text.setTextSize(20);
+//		mListView.addHeaderView(text);
+//		Button button = new Button(getActivity());
+//		button.setText("Submit");
+//		mListView.addFooterView(button);
+//		mListView.setAdapter(mListAdapter);
+//		loadListView();
+//		return mListView;
+		loadAction();
+		return mScroll;
 	}
 	
 //	@Override
@@ -84,9 +98,9 @@ public class ActionDetailFragment extends Fragment {
 	public void displayAction(Action action) {
 		//mAction = action;
 		//loadWebView();
-		Log.d("Detail Fragment", "Display "+mInfoList.size());
+		Log.d("Detail Fragment", "Display Action");
 		mAction = action;
-		loadListView();
+		loadAction();
 	}
 
 	/**
@@ -101,17 +115,23 @@ public class ActionDetailFragment extends Fragment {
 	//				"utf-8");
 	//	}
 	//}
-
-	void loadListView() {
-		mInfoList.clear();
+	
+	void loadAction() {
+//		mInfoList.clear();
+//		for (Action.Info i: mAction.getInfoList()) {
+//			HashMap<String, Object> map = new HashMap<String, Object>();
+//			map.put("text", i.title);
+//			mInfoList.add(map);
+//		}
+//		Log.d("Detail Fragment", "Load "+mInfoList.size());
+//		//setListAdapter(mListAdapter);
+//		if (mListAdapter != null)
+//			mListAdapter.notifyDataSetChanged();
+		mLayout.removeAllViews();
 		for (Action.Info i: mAction.getInfoList()) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("text", i.title);
-			mInfoList.add(map);
+			Collector c = i.generateCollector();
+			collectors.add(c);
+			mLayout.addView(c.getView());
 		}
-		Log.d("Detail Fragment", "Load "+mInfoList.size());
-		//setListAdapter(mListAdapter);
-		if (mListAdapter != null)
-			mListAdapter.notifyDataSetChanged();
 	}
 }
