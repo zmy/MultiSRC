@@ -2,6 +2,7 @@ package zmy.exp.multisrc.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import zmy.exp.multisrc.R;
 import zmy.exp.multisrc.action.collector.Collector;
 import zmy.exp.multisrc.action.collector.TextConversation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -79,7 +81,7 @@ public class ActionDetailFragment extends Fragment {
 		//mListView.setAdapter(mListAdapter);
 		//loadListView();
 		//return mListView;
-		
+
 		//TODO: add header and footer
 		loadAction();
 		return mScroll;
@@ -134,8 +136,23 @@ public class ActionDetailFragment extends Fragment {
 			mLayout.removeAllViews();
 			for (Collector c: mAction.getCollectorList()) {
 				collectors.add(c);
-				mLayout.addView(c.getView(getActivity()));
+				mLayout.addView(c.getView(this));
 			}
 		}
+	}
+
+	//Following are the mechanisms for sub-collectors to start a new activity for result
+	public interface DetailResponseListener {
+		public void onResponseResult(int requestCode, int resultCode, Intent data);
+	}
+
+	public void startActivityFromCollector(Collector collector, Intent intent, int requestCode) {
+		startActivityForResult(intent, collectors.indexOf(collector) * Collector.MAX_CONTROLLER + requestCode);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		collectors.get(requestCode / Collector.MAX_CONTROLLER)
+			.onResponseResult(requestCode % Collector.MAX_CONTROLLER, resultCode, data);
 	}
 }

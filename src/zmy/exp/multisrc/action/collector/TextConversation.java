@@ -7,9 +7,11 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import zmy.exp.multisrc.action.ActionDetailFragment;
 import zmy.exp.multisrc.action.util.XMLParser;
 
-import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -23,6 +25,7 @@ public class TextConversation implements Collector {
 	LinearLayout mLayout;
 	TextView mText;
 	EditText mEdit;
+	ActionDetailFragment mFather;
 
 	@Override
 	public String getResult() {
@@ -30,16 +33,18 @@ public class TextConversation implements Collector {
 	}
 
 	@Override
-	public View getView(Context context) {
-		//TODO: not need to create new each time
-		mLayout = new LinearLayout(context);
-		mLayout.setOrientation(LinearLayout.VERTICAL);
-		mText = new TextView(context);
-		mText.setText(question);
-		mLayout.addView(mText);
-		mEdit = new EditText(context);
-		mEdit.setHint(hint);
-		mLayout.addView(mEdit);
+	public View getView(ActionDetailFragment father) {
+		if (mFather == null || !mFather.equals(father)) {
+			mLayout = new LinearLayout(father.getActivity());
+			mLayout.setOrientation(LinearLayout.VERTICAL);
+			mText = new TextView(father.getActivity());
+			mText.setText(question);
+			mLayout.addView(mText);
+			mEdit = new EditText(father.getActivity());
+			mEdit.setHint(hint);
+			mLayout.addView(mEdit);
+			mFather = father;
+		}
 		return mLayout;
 	}
 
@@ -51,6 +56,7 @@ public class TextConversation implements Collector {
 
 	public TextConversation(XmlPullParser parser) {
 		options = new HashMap<String, String>();
+		mFather = null;
 		try {
 			readInfo(parser);
 		} catch (XmlPullParserException e) {
@@ -77,6 +83,12 @@ public class TextConversation implements Collector {
 				XMLParser.skip(parser);
 			}
 		}
+	}
+
+	@Override
+	public void onResponseResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
