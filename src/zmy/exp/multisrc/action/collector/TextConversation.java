@@ -11,7 +11,6 @@ import zmy.exp.multisrc.action.ActionDetailFragment;
 import zmy.exp.multisrc.action.util.XMLParser;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;

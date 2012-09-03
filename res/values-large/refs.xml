@@ -1,5 +1,0 @@
-<resources>
-
-    <item name="activity_survey_list" type="layout">@layout/activity_survey_twopane</item>
-
-</resources>
