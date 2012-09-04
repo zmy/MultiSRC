@@ -1,4 +1,4 @@
-package zmy.exp.multisrc.action;
+package zmy.exp.multisrc.action.store;
 
 import android.content.res.Resources;
 

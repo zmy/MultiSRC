@@ -24,8 +24,8 @@
         android:logo="@drawable/logo" >
         <activity
             android:name=".user.LoginActivity"
-            android:theme="@style/MainStyle"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/MainStyle" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,6 +52,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SurveyListActivity" />
+        </activity>
+        <activity
+            android:name=".user.InviteActivity"
+            android:label="@string/title_activity_invite" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zmy.exp.multisrc.user.LoginActivity" />
         </activity>
     </application>
 
