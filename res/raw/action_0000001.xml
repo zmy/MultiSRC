@@ -14,6 +14,11 @@
 		<auto/>
 		<summary/>
 	</entry>
+	<info collector="ContactPicker">
+		<options require="true"/>
+		<description type="text">Choose your best friend~</description>
+		<title type="text">Click to Choose</title>
+	</info>
 	<info collector="TextConversation">
 		<description type="text">What you have done with the friend?</description>
 		<title type="text">Activity</title>

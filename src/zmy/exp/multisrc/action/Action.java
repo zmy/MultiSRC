@@ -2,10 +2,8 @@ package zmy.exp.multisrc.action;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -14,12 +12,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import zmy.exp.multisrc.R;
 import zmy.exp.multisrc.action.collector.Collector;
 import zmy.exp.multisrc.action.collector.CollectorFactory;
-import zmy.exp.multisrc.action.collector.ContactPicker;
-import zmy.exp.multisrc.action.collector.TextConversation;
-import zmy.exp.multisrc.action.util.NonsenseGenerator;
 import zmy.exp.multisrc.action.util.XMLParser;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
 import android.util.Xml;

@@ -1,14 +1,9 @@
 package zmy.exp.multisrc.action;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
-import zmy.exp.multisrc.R;
 import zmy.exp.multisrc.action.collector.Collector;
-import zmy.exp.multisrc.action.collector.TextConversation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,13 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ScrollView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 /**
  * Fragment that displays detail of an action.

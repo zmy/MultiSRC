@@ -1,6 +1,5 @@
 package zmy.exp.multisrc.action;
 
-import zmy.exp.multisrc.action.util.NonsenseGenerator;
 import android.content.res.Resources;
 
 /**
