@@ -12,8 +12,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 /**
  * Fragment that displays detail of an action.
@@ -77,13 +79,13 @@ public class ActionDetailFragment extends Fragment {
 		return mScroll;
 	}
 
-	//	@Override
-	//	public void onStart() {
-	//		super.onStart();
-	//		Log.d("Detail Fragment", "At Start, Is mListAdapter null: "+(mListAdapter == null));
-	//		setListAdapter(mListAdapter);
-	//		//loadCategory(0);
-	//	}
+	//@Override
+	//public void onStart() {
+	//	super.onStart();
+	//	Log.d("Detail Fragment", "At Start, Is mListAdapter null: "+(mListAdapter == null));
+	//	setListAdapter(mListAdapter);
+	//	//loadCategory(0);
+	//}
 
 	/**
 	 * Displays a particular action.
@@ -112,22 +114,33 @@ public class ActionDetailFragment extends Fragment {
 	//}
 
 	void loadAction() {
-		//		mInfoList.clear();
-		//		for (Action.Info i: mAction.getInfoList()) {
-		//			HashMap<String, Object> map = new HashMap<String, Object>();
-		//			map.put("text", i.title);
-		//			mInfoList.add(map);
-		//		}
-		//		Log.d("Detail Fragment", "Load "+mInfoList.size());
-		//		//setListAdapter(mListAdapter);
-		//		if (mListAdapter != null)
-		//			mListAdapter.notifyDataSetChanged();
+		//mInfoList.clear();
+		//for (Action.Info i: mAction.getInfoList()) {
+		//	HashMap<String, Object> map = new HashMap<String, Object>();
+		//	map.put("text", i.title);
+		//	mInfoList.add(map);
+		//}
+		//Log.d("Detail Fragment", "Load "+mInfoList.size());
+		////setListAdapter(mListAdapter);
+		//if (mListAdapter != null)
+		//	mListAdapter.notifyDataSetChanged();
 		if (mLayout != null) {
+			//TODO: is it necessary to reload all views?
 			mLayout.removeAllViews();
+			//
+			TextView header = new TextView(getActivity());
+			header.setText(mAction.getHeadline());
+			header.setTextSize(20);
+			mLayout.addView(header);
+			//
 			for (Collector c: mAction.getCollectorList()) {
 				collectors.add(c);
 				mLayout.addView(c.getView(this));
 			}
+			//
+			Button store = new Button(getActivity());
+			store.setText("Store Locally");
+			mLayout.addView(store);
 		}
 	}
 

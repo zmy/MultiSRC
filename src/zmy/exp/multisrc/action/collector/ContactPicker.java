@@ -21,7 +21,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ContactPicker implements Collector, OnClickListener {
+public class ContactPicker implements Collector {
 
 	static final int PICK_CONTACT_REQUEST = 1;  // The request code
 
@@ -49,7 +49,12 @@ public class ContactPicker implements Collector, OnClickListener {
 			mLayout.addView(mText);
 			mButton = new Button(father.getActivity());
 			mButton.setHint(hint);
-			mButton.setOnClickListener(this);
+			mButton.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					pickContact();
+				}
+			});
 			mLayout.addView(mButton);
 			mFather = father;
 		}
@@ -93,9 +98,7 @@ public class ContactPicker implements Collector, OnClickListener {
 		}
 	}
 
-	@Override
-	public void onClick(View v) {
-		//Pick Contact
+	void pickContact() {
 		Intent pickContactIntent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
 		pickContactIntent.setType(Phone.CONTENT_TYPE); // Show user only contacts w/ phone numbers
 		mFather.startActivityFromCollector(this, pickContactIntent, PICK_CONTACT_REQUEST);
