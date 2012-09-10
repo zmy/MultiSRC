@@ -16,5 +16,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_invite">Invite Your Friend</string>
+    <string name="send_action">Send Invitation</string>
+    <string name="invite_hint">Invite your friend to join~</string>
+    <string name="invite_button">Invite</string>
 
 </resources>

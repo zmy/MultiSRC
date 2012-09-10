@@ -31,4 +31,9 @@ public class LoginActivity extends Activity {
     //    intent.putExtra(EXTRA_MESSAGE, message);
     //    startActivity(intent);
     //}
+    
+    public void inviteFriend(View view) {
+    	Intent intent = new Intent(this, InviteActivity.class);
+    	startActivity(intent);
+    }
 }
