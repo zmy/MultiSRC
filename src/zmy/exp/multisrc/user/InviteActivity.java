@@ -37,16 +37,16 @@ public class InviteActivity extends Activity {
 	}
 
 	public void sendInvitation(View view) {
-		Intent emailIntent = new Intent(Intent.ACTION_SEND);
+		Intent sendIntent = new Intent(Intent.ACTION_SEND);
 		// The intent does not have a URI, so declare the "text/plain" MIME type
-		emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
-		//emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"jon@example.com"}); // recipients
-		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "[Invitation] Welcome to Join My Network at MultiSRC");
-		emailIntent.putExtra(Intent.EXTRA_TEXT, "MultiSRC is ... Invite link ...");
+		sendIntent.setType(HTTP.PLAIN_TEXT_TYPE);
+		//sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"jon@example.com"}); // recipients
+		sendIntent.putExtra(Intent.EXTRA_SUBJECT, "[Invitation] Welcome to Join My Network at MultiSRC");
+		sendIntent.putExtra(Intent.EXTRA_TEXT, "MultiSRC is ... Invite link ...");
 		//TODO: email content
-		//emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("content://path/to/email/attachment"));
+		//sendIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("content://path/to/email/attachment"));
 		// You can also attach multiple items by passing an ArrayList of Uris
-		startActivity(emailIntent);
+		startActivity(sendIntent);
 	}
 
 	public String getInviteLink() {

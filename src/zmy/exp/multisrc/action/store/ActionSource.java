@@ -6,7 +6,7 @@ import android.content.res.Resources;
  * Source/repository of actions.
  */
 public class ActionSource {
-	
+
 	// the instance
 	static ActionSource instance = null;
 
@@ -24,14 +24,14 @@ public class ActionSource {
 		return instance;
 	}
 
-//	public ActionSource() {
-//		int i;
-//		mCategory = new ActionCategory[CATEGORIES.length];
-//		for (i = 0; i < CATEGORIES.length; i++) {
-//			mCategory[i] = new ActionCategory();
-//		}
-//	}
-	
+	//	public ActionSource() {
+	//		int i;
+	//		mCategory = new ActionCategory[CATEGORIES.length];
+	//		for (i = 0; i < CATEGORIES.length; i++) {
+	//			mCategory[i] = new ActionCategory();
+	//		}
+	//	}
+
 	public ActionSource(Resources res) {
 		int i;
 		mCategory = new ActionCategory[CATEGORIES.length];
@@ -45,8 +45,8 @@ public class ActionSource {
 		return CATEGORIES;
 	}
 
-    /** Returns a category by index. */
-    public ActionCategory getCategory(int categoryIndex) {
-        return mCategory[categoryIndex];
-    }
+	/** Returns a category by index. */
+	public ActionCategory getCategory(int categoryIndex) {
+		return mCategory[categoryIndex];
+	}
 }

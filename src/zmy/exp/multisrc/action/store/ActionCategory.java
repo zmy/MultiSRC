@@ -16,30 +16,30 @@ public class ActionCategory {
 	/**
 	 * Create an action category.
 	 */
-//	public ActionCategory() {
-//        NonsenseGenerator ngen = new NonsenseGenerator();
-//        mActions = new Action[ARTICLES_PER_CATEGORY];
-//        int i;
-//        for (i = 0; i < mActions.length; i++) {
-//        	mActions[i] = new Action(ngen);
-//        }
-//    }
-	
+	//	public ActionCategory() {
+	//        NonsenseGenerator ngen = new NonsenseGenerator();
+	//        mActions = new Action[ARTICLES_PER_CATEGORY];
+	//        int i;
+	//        for (i = 0; i < mActions.length; i++) {
+	//        	mActions[i] = new Action(ngen);
+	//        }
+	//    }
+
 	public ActionCategory(Resources res) {
-        mActions = new Action[ARTICLES_PER_CATEGORY];
-        int i;
-        for (i = 0; i < mActions.length; i++) {
-        	mActions[i] = new Action(res);
-        }
-    }
+		mActions = new Action[ARTICLES_PER_CATEGORY];
+		int i;
+		for (i = 0; i < mActions.length; i++) {
+			mActions[i] = new Action(res);
+		}
+	}
 
-    /** Returns how many actions exist in this category. */
-    public int getActionCount() {
-        return mActions.length;
-    }
+	/** Returns how many actions exist in this category. */
+	public int getActionCount() {
+		return mActions.length;
+	}
 
-    /** Gets a particular action by index. */
-    public Action getAction(int index) {
-        return mActions[index];
-    }
+	/** Gets a particular action by index. */
+	public Action getAction(int index) {
+		return mActions[index];
+	}
 }
